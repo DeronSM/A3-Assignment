@@ -140,3 +140,4 @@ public class Student extends NewPPL
         return "Student: " + fullName + " - StudentNo: " + registrationNumber;
     }
 }
+
