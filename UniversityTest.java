@@ -316,13 +316,30 @@ public class UniversityTest
     @Test
     public void sortingSpeedTest()
     {
-        // some example code to generate 100 students at random
-        Student[] students = new Student[100];
-        Random r = new Random(1);
-        for (int i = 0; i < students.length; i++)
+        University example = new University();
+        // some example code to generate array list
+        int[] array = {10,20,50,90,100,1000};
+        Random r = new Random(5);
+        ArrayList<Cohort> testing = new ArrayList<>();
+        System.out.println ("===QuickSort Test===");
+
+        for (int size : array)
         {
-            students[i] = new Student(r);
-            System.out.println(students[i]);
+            for (int i = 0; i < array.length; i++)
+            {
+                int c = r.nextInt(90) + 10;
+                String n = "Module" + r.nextInt(10);
+                //creating a module m
+                Module m = new Module(c,n);
+                //creating a cohort object
+                Cohort cohort = new Cohort(m, new BinaryTree(new Student[]{}), new Professor("Object", 0, "@staff.stir.ac.uk", "Bsc", 1.0));
+                testing.add(cohort);
+            }
+            long starting = System.nanoTime();
+            ArrayList<Cohort> sorting = example.sortMethod(testing, 4, true, "Name");
+            long ending = System.nanoTime();
+            long t = ending - starting;
+            System.out.println("Size : " + size + "," + " Time : " + t);
         }
     }
 
