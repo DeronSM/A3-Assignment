@@ -169,7 +169,7 @@ public class University
      */
     public Module searchForModule(String moduleName)
     {
-        this.sortMethod(false, "name"); // sorting before searching
+        this.sortMethod(true, "name"); // sorting before searching
         return searchForModule(cohorts, moduleName);
     }
 
@@ -299,3 +299,4 @@ public class University
     }
 
 }
+
